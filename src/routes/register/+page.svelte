@@ -28,6 +28,9 @@
     if (!isEmail(email)) {
       error = "Please enter a valid email address.";
       return;
+    } else if (password.length < 8) {
+      error = "Password must be at least 8 characters long.";
+      return;
     }
     try {
       if (!email || !password || !name) {
