@@ -12,6 +12,9 @@ const config = {
 		// 	"$components": 'src/components',
 		// 	"$/": "src/",
 		// },
+		alias: {
+			"$components": './src/components'  // 确保这里写对了
+		},
 		adapter: adapter({
 			// default options are shown. On some platforms
 			// these options are set automatically — see below

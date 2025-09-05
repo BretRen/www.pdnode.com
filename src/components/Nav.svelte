@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { account, avatars } from "$lib/appwrite";
 
@@ -10,9 +10,9 @@
   onMount(() => {
     account
       .get()
-      .then(() => {
+      .then((user) => {
         loginedIn = true;
-        accountName = account.name;
+        accountName = user.name;
         avatarsUrl = avatars.getInitials(accountName);
       })
       .catch(() => {});
