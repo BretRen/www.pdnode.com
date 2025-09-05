@@ -27,4 +27,28 @@ export const errorMessages: Record<string, string> = {
     "An invitation has already been sent to this email. Please check your inbox or use a different email.",
   team_already_exists:
     "A team with this name already exists. Please choose a different name.",
+  general_argument_invalid:
+    "Invalid parameters provided. Please check your input and try again.",
+  general_exception: "An unexpected error occurred. Please try again later.",
+  users_session_not_found: "Session not found. Please log in again.",
+  users_email_not_verified:
+    "Email not verified. Please verify your email to proceed.",
+  users_phone_not_verified:
+    "Phone number not verified. Please verify your phone number to proceed.",
+  users_invalid_session: "Invalid session. Please log in again.",
+  users_invalid_token: "Invalid token. Please request a new one and try again.",
+  users_token_expired:
+    "Token has expired. Please request a new one and try again.",
+  users_user_not_found:
+    "User not found. Please check your credentials and try again.",
+  users_account_already_verified: "Account already verified. Please log in.",
+  users_password_reset_invalid:
+    "Invalid password reset request. Please try again.",
+  users_oauth_provider_already_linked:
+    "This OAuth provider is already linked to your account.",
+  users_oauth_account_not_linked:
+    "This OAuth account is not linked to any user. Please sign up or link it to your account.",
+  users_phone_invalid:
+    "Invalid phone number format. Please check and try again.",
+  users_email_invalid: "Invalid email format. Please check and try again.",
 };

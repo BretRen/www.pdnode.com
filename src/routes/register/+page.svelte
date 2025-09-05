@@ -12,6 +12,11 @@
   let disabled: boolean = $state(false);
   let error: string | null = $state(null);
 
+  function isEmail(str) {
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return regex.test(str);
+  }
+
   onMount(() => {
     account
       .get()
@@ -20,6 +25,10 @@
   });
 
   async function submitReg() {
+    if (!isEmail(email)) {
+      error = "Please enter a valid email address.";
+      return;
+    }
     try {
       if (!email || !password || !name) {
         error = "Please fill in all fields.";
