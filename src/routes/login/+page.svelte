@@ -24,7 +24,10 @@
       goto("/");
     } catch (err: unknown) {
       console.error(err);
+
       if (err instanceof AppwriteException) {
+        console.error(err.type);
+
         if (errorMessages[err.type]) {
           error = errorMessages[err.type];
         } else {
