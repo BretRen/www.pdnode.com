@@ -30,24 +30,12 @@
     "Pdnode.tech",
     "pdnode.app",
   ];
+
+  import Nav from "../components/nav.svelte";
 </script>
 
 <div class="flex flex-col min-h-screen font-sans text-gray-800">
-  <!-- 导航 -->
-  <nav
-    class="flex flex-col md:flex-row justify-between items-center p-4 bg-white shadow-md"
-  >
-    <h1 class="text-blue-500 text-2xl font-bold mb-2 md:mb-0">Pdnode Team</h1>
-    <ul
-      class="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-6 text-gray-700 font-semibold items-center"
-    >
-      <li><a href="#home" class="hover:text-blue-500">Home</a></li>
-      <li><a href="#about" class="hover:text-blue-500">About</a></li>
-      <li><a href="#members" class="hover:text-blue-500">Members</a></li>
-      <li><a href="#services" class="hover:text-blue-500">Services</a></li>
-      <li><a href="#contact" class="hover:text-blue-500">Contact</a></li>
-    </ul>
-  </nav>
+  <Nav />
 
   <hr class="h-px w-full bg-gray-300 border-0" />
 

@@ -8,6 +8,10 @@ const config = {
 	preprocess: vitePreprocess(),
 
 	kit: {
+		// alias: {
+		// 	"$components": 'src/components',
+		// 	"$/": "src/",
+		// },
 		adapter: adapter({
 			// default options are shown. On some platforms
 			// these options are set automatically — see below

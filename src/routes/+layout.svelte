@@ -4,6 +4,13 @@
 	import "../style.css";
 </script>
 
-<svelte:head></svelte:head>
+<svelte:head>
+	<title>Pdnode Website</title>
+	<meta
+		name="description"
+		content="A group of people with similar interests."
+	/>
+	<link rel="icon" href="/favicon.ico" />
+</svelte:head>
 
 {@render children?.()}
