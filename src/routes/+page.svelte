@@ -31,7 +31,7 @@
     "pdnode.app",
   ];
 
-  import Nav from "../components/nav.svelte";
+  import Nav from "$components/Nav.svelte";
 </script>
 
 <div class="flex flex-col min-h-screen font-sans text-gray-800">
