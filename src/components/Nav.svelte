@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { account, avatars } from "$lib/appwrite";
+  import { slide } from "svelte/transition";
 
   let loginedIn = $state(false);
   let accountName = $state("Guest");
@@ -66,6 +67,7 @@
         {#if open}
           <div
             class="origin-top-right absolute right-0 mt-2 w-40 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10"
+            transition:slide
           >
             <div
               class="py-1"
