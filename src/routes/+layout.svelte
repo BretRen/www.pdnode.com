@@ -1,6 +1,6 @@
 <script lang="ts">
 	let { children } = $props();
-	export const prerender = true;
+	// export const prerender = true;
 	import "../style.css";
 </script>
 
