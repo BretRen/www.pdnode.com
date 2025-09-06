@@ -15,6 +15,7 @@
         loginedIn = true;
         accountName = user.name;
         avatarsUrl = avatars.getInitials(accountName);
+        console.log(user);
       })
       .catch(() => {});
   });
