@@ -96,5 +96,10 @@
       class="w-full bg-blue-500 text-white font-bold py-2 px-4 rounded hover:bg-blue-600 disabled:bg-gray-400"
       onclick={() => submitLogin()}>Login</button
     >
+    <button
+      type="button"
+      class="w-full my-4 bg-gray-500 text-white font-bold py-2 px-4 rounded hover:bg-gray-600 disabled:bg-gray-400"
+      onclick={() => (window.location.href = "/")}>Go back to Home</button
+    >
   </form>
 </main>

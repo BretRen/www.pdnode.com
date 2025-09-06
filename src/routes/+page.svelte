@@ -23,13 +23,7 @@
     },
   ];
 
-  const services = [
-    "ChatRoom",
-    "Pdnode MC(due 9.8)",
-    "Website Development",
-    "Pdnode.tech",
-    "pdnode.app",
-  ];
+  const services = ["ChatRoom", "Website Development"];
 
   import Nav from "$components/Nav.svelte";
 </script>
