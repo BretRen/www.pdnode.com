@@ -206,7 +206,7 @@ export default function Home() {
         color="text.secondary"
         fontSize="0.875rem"
       >
-        © 2025 Pdnode. All rights reserved. ·{" "}
+        © 2025 Pdnode LLC. All rights reserved. ·{" "}
         <MuiLink href="https://forum.pdnode.com/d/5-pdnode-terms-of-service" underline="hover">
           Terms
         </MuiLink>{" "}
