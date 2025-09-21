@@ -2,16 +2,16 @@
 // import Grid from "@mui/material/Grid";
 import {
   AppBar,
-  Toolbar,
-  Typography,
-  Container,
   Box,
   Card,
   CardContent,
+  Container,
   List,
   ListItem,
   ListItemText,
   Link as MuiLink,
+  Toolbar,
+  Typography,
 } from "@mui/material";
 // import Link from "next/link";
 
@@ -31,11 +31,11 @@ const teamMembers = [
     introduce: "Focus on front-end development of Nextjs and Mui+react.",
   },
   {
-    name: "owg",
+    name: "cigcig",
     joined: "2025-07-01",
     position: "Member",
-    mainTasks: "Pdnode MC Management",
-    introduce: "Responsible for the management and maintenance of Pdnode MC.",
+    mainTasks: "Back-end Development",
+    introduce: "Focus on back-end development",
   },
 ];
 
@@ -89,7 +89,7 @@ export default function Home() {
           Welcome to Pdnode Team
         </Typography>
         <Typography variant="h6" color="text.secondary" maxWidth="600px" mx="auto">
-          A group of people with similar interests.
+          A company specializing in web development
         </Typography>
       </Box>
 
@@ -99,9 +99,8 @@ export default function Home() {
           About Us
         </Typography>
         <Typography color="text.secondary" gutterBottom>
-          Pdnode is a group of people with the same interests. Founded on 2024-07-10.
+          Pdnode is a group of people with the same interests. Founded on 2024-07-10. A company specializing in web development
         </Typography>
-        <Typography>Note: We are not a company, just an organization.</Typography>
       </Container>
 
       {/* Team Members */}
