@@ -16,22 +16,21 @@ import {
     Snackbar,
     Typography,
 } from '@mui/material';
+import type { Models } from "appwrite";
 import { useEffect, useState } from 'react';
 
-interface Announcement {
-    $id: string;
+interface AnnouncementRow extends Models.DefaultRow {
     title: string;
     text: string;
     summary: string;
-    $createdAt: string; // ISO 字符串
+    $createdAt: string;
 }
 
 export default function Announcements() {
-    const [announcements, setAnnouncements] = useState<Announcement[]>([]);
+    const [announcements, setAnnouncements] = useState<AnnouncementRow[]>([]);
     const [loading, setLoading] = useState(true);
     const [openId, setOpenId] = useState<string | null>(null);
     const [tipOpen, setTipOpen] = useState(false);
-
 
     useEffect(() => {
         const fetchAnnouncements = async () => {
@@ -42,14 +41,16 @@ export default function Announcements() {
                     queries: [],
                 });
 
-                const mapped: Announcement[] = result.rows.map((row: any) => ({
+                // map 转换，并断言为 AnnouncementRow
+                const mapped: AnnouncementRow[] = result.rows.map((row) => ({
                     $id: row.$id,
-                    title: row.title || 'No Title',
-                    text: row.text || 'No Content',
-                    summary: row.text ? row.text.slice(0, 100) + (row.text.length > 100 ? '...' : '') : 'No Summary',
-                    $createdAt: row.$createdAt?.$date || row.$createdAt || '', // 如果是 Appwrite DateTime 对象，用 $date，否则用原值
-                }));
-
+                    title: (row as any).title || "No Title",
+                    text: (row as any).text || "No Content",
+                    summary: (row as any).text
+                        ? (row as any).text.slice(0, 100) + ((row as any).text.length > 100 ? "..." : "")
+                        : "No Summary",
+                    $createdAt: (row as any).$createdAt?.$date || (row as any).$createdAt || '', // 保留你要求的定义
+                })) as AnnouncementRow[];
 
                 setAnnouncements(mapped);
 
@@ -71,12 +72,11 @@ export default function Announcements() {
     }, []);
 
     const handleOpen = (id: string) => {
-        window.location.hash = id; // 更新 URL hash
+        window.location.hash = id;
         setOpenId(id);
     };
     const handleClose = () => {
         setOpenId(null);
-        // 清除 URL hash
         if (window.history.replaceState) {
             window.history.replaceState(null, '', window.location.pathname + window.location.search);
         } else {
@@ -86,10 +86,9 @@ export default function Announcements() {
 
     const currentAnnouncement = announcements.find(a => a.$id === openId);
 
-    // 本地化时间格式函数
     const formatDate = (isoString: string) => {
         const date = new Date(isoString);
-        return date.toLocaleString(); // 默认浏览器 locale
+        return isNaN(date.getTime()) ? 'Invalid Date' : date.toLocaleString();
     };
 
     return (
@@ -137,7 +136,6 @@ export default function Announcements() {
                 )}
             </Container>
 
-            {/* 弹窗显示详情 */}
             <Dialog open={!!currentAnnouncement} onClose={handleClose} fullWidth maxWidth="sm">
                 <DialogTitle>
                     {currentAnnouncement?.title}
@@ -157,7 +155,6 @@ export default function Announcements() {
                 </DialogContent>
             </Dialog>
 
-            {/* Tip 提示不存在的 id */}
             <Snackbar
                 open={tipOpen}
                 autoHideDuration={4000}
