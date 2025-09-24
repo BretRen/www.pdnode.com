@@ -1,7 +1,6 @@
 "use client";
 // import Grid from "@mui/material/Grid";
 import {
-  AppBar,
   Box,
   Card,
   CardContent,
@@ -10,9 +9,9 @@ import {
   ListItem,
   ListItemText,
   Link as MuiLink,
-  Toolbar,
-  Typography,
+  Typography
 } from "@mui/material";
+import NavBar from '../components/NavBar';
 // import Link from "next/link";
 
 const teamMembers = [
@@ -44,38 +43,7 @@ const services = ["ChatRoom", "Website Development"];
 export default function Home() {
   return (
     <Box display="flex" flexDirection="column" minHeight="100vh">
-      {/* 导航 */}
-      <AppBar position="static" color="default" elevation={1}>
-        <Toolbar className="flex flex-col md:flex-row justify-between w-full">
-          <Typography variant="h6" color="primary" fontWeight="bold" sx={{ mt: { xs: 1.5, md: 0 } }}>
-            <MuiLink href="/" underline="hover" color="inherit">
-              Pdnode Team
-            </MuiLink>
-          </Typography>
-          {/* <Box className="flex flex-col md:flex-row gap-4 mt-2 md:mt-0">
-            <MuiLink href="#home" underline="hover" color="inherit">
-              Home
-            </MuiLink>
-            <MuiLink href="#about" underline="hover" color="inherit">
-              About
-            </MuiLink>
-            <MuiLink href="#members" underline="hover" color="inherit">
-              Members
-            </MuiLink>
-            <MuiLink href="#services" underline="hover" color="inherit">
-              Services
-            </MuiLink>
-            <MuiLink href="#contact" underline="hover" color="inherit">
-              Contact
-            </MuiLink>
-            <Link href="/announcement" passHref>
-              <MuiLink underline="hover" color="inherit">
-                Announcements
-              </MuiLink>
-            </Link>
-          </Box> */}
-        </Toolbar>
-      </AppBar>
+      <NavBar />
 
       {/* 欢迎区 */}
       <Box
