@@ -19,7 +19,8 @@ import {
 import type { Models } from "appwrite";
 import { useEffect, useState } from 'react';
 
-interface AnnouncementRow extends Models.DefaultRow {
+interface AnnouncementRow {
+    $id: string;
     title: string;
     text: string;
     summary: string;
@@ -41,16 +42,20 @@ export default function Announcements() {
                     queries: [],
                 });
 
-                // map 转换，并断言为 AnnouncementRow
-                const mapped: AnnouncementRow[] = result.rows.map((row) => ({
+                const mapped: AnnouncementRow[] = result.rows.map((row: Models.DefaultRow) => ({
                     $id: row.$id,
-                    title: (row as any).title || "No Title",
-                    text: (row as any).text || "No Content",
-                    summary: (row as any).text
-                        ? (row as any).text.slice(0, 100) + ((row as any).text.length > 100 ? "..." : "")
-                        : "No Summary",
-                    $createdAt: (row as any).$createdAt?.$date || (row as any).$createdAt || '', // 保留你要求的定义
-                })) as AnnouncementRow[];
+                    title: (row['title'] as string) ?? "No Title",
+                    text: (row['text'] as string) ?? "No Content",
+                    summary: ((row['text'] as string)
+                        ? (row['text'] as string).slice(0, 100) + ((row['text'] as string).length > 100 ? "..." : "")
+                        : "No Summary"),
+                    $createdAt:
+                        typeof row.$createdAt === 'string'
+                            ? row.$createdAt
+                            : row.$createdAt && typeof row.$createdAt === 'object' && '$date' in row.$createdAt
+                                ? (row.$createdAt as { $date: string }).$date
+                                : '',
+                }));
 
                 setAnnouncements(mapped);
 
