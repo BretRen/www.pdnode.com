@@ -1,6 +1,6 @@
 {
   "name": "www.pdnode.com",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
@@ -27,5 +27,5 @@
     "tailwindcss": "^4",
     "typescript": "^5"
   },
-  "packageManager":"pnpm@10.13.1"
+  "packageManager": "pnpm@10.13.1"
 }

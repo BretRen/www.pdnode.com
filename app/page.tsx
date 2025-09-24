@@ -207,11 +207,11 @@ export default function Home() {
         fontSize="0.875rem"
       >
         © 2025 Pdnode LLC. All rights reserved. ·{" "}
-        <MuiLink href="https://forum.pdnode.com/d/5-pdnode-terms-of-service" underline="hover">
+        <MuiLink href="/terms" underline="hover" target="_blank" rel="noopener noreferrer">
           Terms
         </MuiLink>{" "}
         ·{" "}
-        <MuiLink href="https://forum.pdnode.com/d/6-pdnode-privacy-policy" underline="hover">
+        <MuiLink href="/privacy" underline="hover" target="_blank" rel="noopener noreferrer">
           Privacy
         </MuiLink>
       </Box>
